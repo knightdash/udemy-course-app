@@ -37,6 +37,7 @@
 
 //////// ********* Section5 : Components & Databinding Deep Dive**************** ////////
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -50,7 +51,8 @@ import { ServerElementComponent } from './Section5-Component&DatabindingDeep/ser
     ServerElementComponent,  
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
