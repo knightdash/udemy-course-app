@@ -1,12 +1,7 @@
- /********* Section2 : Basic ****************/
-h3 {
-  color: blue;
+.container {
+  margin-top: 30px;
 }
 
-
-
-
-
-
-
-/********* Section5 : Components & Databinding Deep Dive****************/
+p {
+  color: blue;
+}
