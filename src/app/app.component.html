@@ -23,12 +23,15 @@
   <app-cockpit
     (serverCreated)="onServerAdd($event)"
     (bluePrintCreated)="onBlueprintAdd($event)"></app-cockpit>
+    <button class="btn btn-success" (click)="onChangeFirst()">Change name first element</button>
+    <button class="btn btn-danger" (click)="onFirstDestry()">Destroy first element</button>
   <div class="row">
     <div class="col-xs-12">
       <app-server-element 
         *ngFor="let serverElement of serverElements"
-        [srvElement]="serverElement">
-        <p>
+        [srvElement]="serverElement"
+        [name]="serverElement.name" >
+        <p #paragraph>
           <strong *ngIf="serverElement.type === 'server'" style="color:red">{{ serverElement.content}}</strong>
           <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
         </p>
