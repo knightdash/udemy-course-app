@@ -69,28 +69,65 @@
 
 
 //////// ********* Section7 : Directice Deep Dive**************** ////////
+// import { BrowserModule } from '@angular/platform-browser';
+// import { NgModule } from '@angular/core';
+// import { FormsModule } from '@angular/forms';
+
+
+// import { AppComponent } from './app.component';
+// import { BasicHighLightDirective } from './Section7-Directive Deep Dive/basic-highlight/basic-highlight.directive';
+// import { BetterHighlightDirective } from './Section7-Directive Deep Dive/better-highlight/better-highlight.directive';
+// import { UnlessDirective } from './Section7-Directive Deep Dive/unless/unless.directive';
+
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     BasicHighLightDirective,
+//     BetterHighlightDirective,
+//     UnlessDirective,
+//   ],
+//   imports: [
+//     BrowserModule,
+//     FormsModule,
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+
+
+
+
+
+
+
+
+//////// ********* Section7 : Directice Deep Dive**************** ////////
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { BasicHighLightDirective } from './Section7-Directive Deep Dive/basic-highlight/basic-highlight.directive';
-import { BetterHighlightDirective } from './Section7-Directive Deep Dive/better-highlight/better-highlight.directive';
-import { UnlessDirective } from './Section7-Directive Deep Dive/unless/unless.directive';
+import { AccountComponent } from './Section9-Service&DependencyInjection/account/account.component';
+import { NewAccountComponent } from './Section9-Service&DependencyInjection/new-account/new-account.component';
+import { AccountsService } from './Section9-Service&DependencyInjection/accounts.service';
+import { LoggingService } from './Section9-Service&DependencyInjection/logging.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasicHighLightDirective,
-    BetterHighlightDirective,
-    UnlessDirective,
+    AccountComponent,
+    NewAccountComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [AccountsService, LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

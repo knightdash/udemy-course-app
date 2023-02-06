@@ -68,20 +68,42 @@
 
 
 //////// ********* Section7 : Directive Deep Dive**************** ////////
-import { Component } from '@angular/core';
+// import { Component } from '@angular/core';
+
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent {
+//   numbers = [1, 2, 3, 4, 5];
+//   oddNumbers = [1, 3, 5];
+//   evenNumbers = [2, 4];
+//   onlyOdd = false;
+//   value = 10;
+// }
+
+
+
+
+
+//////// ********* Section7 : Directive Deep Dive**************** ////////
+import { Component, OnInit } from '@angular/core';
+import { AccountComponent } from './Section9-Service&DependencyInjection/account/account.component';
+import { AccountsService } from './Section9-Service&DependencyInjection/accounts.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  numbers = [1, 2, 3, 4, 5];
-  oddNumbers = [1, 3, 5];
-  evenNumbers = [2, 4];
-  onlyOdd = false;
-  value = 10;
+export class AppComponent  implements OnInit {
+  accounts: { name: string, status: string }[] = [];
+
+  constructor(private accountsService: AccountsService) { }
+
+  ngOnInit(): void {
+      this.accounts = this.accountsService.accounts;
+  }
 }
-
-
 
