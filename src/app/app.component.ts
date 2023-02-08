@@ -1,5 +1,7 @@
 //////// ********* Section2 : Basic **************** ////////
 
+import { Component } from "@angular/core";
+
 // import { Component } from '@angular/core';
 
 // @Component({
@@ -88,22 +90,40 @@
 
 
 //////// ********* Section7 : Directive Deep Dive**************** ////////
-import { Component, OnInit } from '@angular/core';
-import { AccountComponent } from './Section9-Service&DependencyInjection/account/account.component';
-import { AccountsService } from './Section9-Service&DependencyInjection/accounts.service';
+// import { Component, OnInit } from '@angular/core';
+// import { AccountComponent } from './Section9-Service&DependencyInjection/account/account.component';
+// import { AccountsService } from './Section9-Service&DependencyInjection/accounts.service';
 
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent  implements OnInit {
+//   accounts: { name: string, status: string }[] = [];
+
+//   constructor(private accountsService: AccountsService) { }
+
+//   ngOnInit(): void {
+//       this.accounts = this.accountsService.accounts;
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+//////// ********* Section11 : Changing Pages with Routing**************** ////////
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit {
-  accounts: { name: string, status: string }[] = [];
+export class AppComponent {
 
-  constructor(private accountsService: AccountsService) { }
-
-  ngOnInit(): void {
-      this.accounts = this.accountsService.accounts;
-  }
 }
-

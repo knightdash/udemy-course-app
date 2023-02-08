@@ -104,30 +104,79 @@
 
 
 //////// ********* Section7 : Directice Deep Dive**************** ////////
+// import { BrowserModule } from '@angular/platform-browser';
+// import { NgModule } from '@angular/core';
+// import { FormsModule } from '@angular/forms';
+
+
+// import { AppComponent } from './app.component';
+// import { AccountComponent } from './Section9-Service&DependencyInjection/account/account.component';
+// import { NewAccountComponent } from './Section9-Service&DependencyInjection/new-account/new-account.component';
+// import { AccountsService } from './Section9-Service&DependencyInjection/accounts.service';
+// import { LoggingService } from './Section9-Service&DependencyInjection/logging.service';
+
+
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     AccountComponent,
+//     NewAccountComponent
+//   ],
+//   imports: [
+//     BrowserModule,
+//     FormsModule,
+//   ],
+//   providers: [AccountsService, LoggingService],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+
+
+
+
+
+
+
+
+
+//////// ********* Section11 : Changing Pages with Routing**************** ////////
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { AccountComponent } from './Section9-Service&DependencyInjection/account/account.component';
-import { NewAccountComponent } from './Section9-Service&DependencyInjection/new-account/new-account.component';
-import { AccountsService } from './Section9-Service&DependencyInjection/accounts.service';
-import { LoggingService } from './Section9-Service&DependencyInjection/logging.service';
+import { HomeComponent } from './Section11-Changing Pages with Routing/home/home.component';
+import { UsersComponent } from './Section11-Changing Pages with Routing/users/users.component';
+import { ServersComponent } from './Section11-Changing Pages with Routing/servers/servers.component';
+import { UserComponent } from './Section11-Changing Pages with Routing/users/user/user.component';
+import { EditServerComponent } from './Section11-Changing Pages with Routing/servers/edit-server/edit-server.component';
+import { ServerComponent } from './Section11-Changing Pages with Routing/servers/server/server.component';
+import { ServersService } from './Section11-Changing Pages with Routing/servers/servers.service';
+import { FormsModule } from '@angular/forms';
 
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'servers', component: ServersComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    AccountComponent,
-    NewAccountComponent
+    HomeComponent,
+    UsersComponent,
+    ServersComponent,
+    UserComponent,
+    EditServerComponent,
+    ServerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [AccountsService, LoggingService],
+  providers: [ServersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
