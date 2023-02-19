@@ -157,6 +157,9 @@ import { PageNotFoundComponent } from './Section11-Changing Pages with Routing/p
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth-guard.service';
+import { CanDeactivateGuard } from './Section11-Changing Pages with Routing/servers/edit-server/can-deactivate-guard.service';
+import { ErrorPageComponent } from './Section11-Changing Pages with Routing/error-page/error-page.component';
+import { ServerResolver } from './Section11-Changing Pages with Routing/servers/server/server-resolver.service';
 
 @NgModule({
   declarations: [
@@ -167,14 +170,15 @@ import { AuthGuard } from './auth-guard.service';
     UserComponent,
     EditServerComponent,
     ServerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ServersService, AuthService, AuthGuard],
+  providers: [ServersService, AuthService, AuthGuard, CanDeactivateGuard, ServerResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
