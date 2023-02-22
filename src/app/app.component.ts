@@ -1,7 +1,5 @@
 //////// ********* Section2 : Basic **************** ////////
 
-import { Component } from "@angular/core";
-
 // import { Component } from '@angular/core';
 
 // @Component({
@@ -119,11 +117,45 @@ import { Component } from "@angular/core";
 
 
 //////// ********* Section11 : Changing Pages with Routing**************** ////////
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent {
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+//////// ********* Section13 : Understanding Observable **************** ////////
+import { Component, OnInit } from "@angular/core";
+import { UserService } from "./Section13-Observables/user/user.service";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  userActivated = false;
+  constructor(
+    private userService: UserService
+  ) {}
+
+  ngOnInit() {
+    this.userService.activatedEmitter.subscribe( state => {
+      this.userActivated = state;
+    })
+  }
 
 }

@@ -119,16 +119,18 @@
 
 
 <!-- /********* Section11 : Changing Pages with Routing****************/ -->
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <ul class="nav nav-tabs">
-        <!-- USE HREF -->
-        <!-- <li role="presentation" class="active"><a href="/">Home</a></li>
-        <li role="presentation"><a href="/servers">Servers</a></li>
-        <li role="presentation"><a href="/users">Users</a></li> -->
-        <!-- louterLink -->
-        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
+      <ul class="nav nav-tabs"> -->
+                <!-- *** -->
+                <!-- USE HREF -->
+                <!-- <li role="presentation" class="active"><a href="/">Home</a></li>
+                <li role="presentation"><a href="/servers">Servers</a></li>
+                <li role="presentation"><a href="/users">Users</a></li> -->
+                <!-- louterLink -->
+                <!-- *** -->
+        <!-- <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
         <li role="presentation" routerLinkActive="active"><a routerLink="/servers">Servers</a></li>
         <li role="presentation" routerLinkActive="active"><a [routerLink]="'/users'">Users</a></li>
       </ul>
@@ -138,7 +140,8 @@
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <router-outlet></router-outlet>
     </div>
-  </div>
+  </div> -->
+  <!-- *** -->
   <!-- <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <app-users></app-users>
@@ -149,4 +152,45 @@
       <app-servers></app-servers>
     </div>
   </div> -->
+  <!-- *** -->
+<!-- </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- /********* Section13 : Understanding observable****************/ -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <a routerLink="/">Home</a>
+      |
+      <a [routerLink]="['user',1]">User 1</a>
+      |
+      <a [routerLink]="['user',2]">User 2</a>
+    </div>
+  </div>
+  <p *ngIf="userActivated">Activated!</p>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

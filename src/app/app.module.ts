@@ -141,44 +141,75 @@
 
 
 //////// ********* Section11 : Changing Pages with Routing**************** ////////
+// import { BrowserModule } from '@angular/platform-browser';
+// import { NgModule } from '@angular/core';
+
+// import { AppComponent } from './app.component';
+// import { HomeComponent } from './Section11-Changing Pages with Routing/home/home.component';
+// import { UsersComponent } from './Section11-Changing Pages with Routing/users/users.component';
+// import { ServersComponent } from './Section11-Changing Pages with Routing/servers/servers.component';
+// import { UserComponent } from './Section11-Changing Pages with Routing/users/user/user.component';
+// import { EditServerComponent } from './Section11-Changing Pages with Routing/servers/edit-server/edit-server.component';
+// import { ServerComponent } from './Section11-Changing Pages with Routing/servers/server/server.component';
+// import { ServersService } from './Section11-Changing Pages with Routing/servers/servers.service';
+// import { FormsModule } from '@angular/forms';
+// import { PageNotFoundComponent } from './Section11-Changing Pages with Routing/page-not-found/page-not-found.component';
+// import { AppRoutingModule } from './app-routing.module';
+// import { AuthService } from './auth.service';
+// import { AuthGuard } from './auth-guard.service';
+// import { CanDeactivateGuard } from './Section11-Changing Pages with Routing/servers/edit-server/can-deactivate-guard.service';
+// import { ErrorPageComponent } from './Section11-Changing Pages with Routing/error-page/error-page.component';
+// import { ServerResolver } from './Section11-Changing Pages with Routing/servers/server/server-resolver.service';
+
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     HomeComponent,
+//     UsersComponent,
+//     ServersComponent,
+//     UserComponent,
+//     EditServerComponent,
+//     ServerComponent,
+//     PageNotFoundComponent,
+//     ErrorPageComponent
+//   ],
+//   imports: [
+//     BrowserModule,
+//     FormsModule,
+//     AppRoutingModule
+//   ],
+//   providers: [ServersService, AuthService, AuthGuard, CanDeactivateGuard, ServerResolver],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+
+
+
+
+
+
+
+//////// ********* Section13 : Understanding Observable**************** ////////
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Section11-Changing Pages with Routing/home/home.component';
-import { UsersComponent } from './Section11-Changing Pages with Routing/users/users.component';
-import { ServersComponent } from './Section11-Changing Pages with Routing/servers/servers.component';
-import { UserComponent } from './Section11-Changing Pages with Routing/users/user/user.component';
-import { EditServerComponent } from './Section11-Changing Pages with Routing/servers/edit-server/edit-server.component';
-import { ServerComponent } from './Section11-Changing Pages with Routing/servers/server/server.component';
-import { ServersService } from './Section11-Changing Pages with Routing/servers/servers.service';
-import { FormsModule } from '@angular/forms';
-import { PageNotFoundComponent } from './Section11-Changing Pages with Routing/page-not-found/page-not-found.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthService } from './auth.service';
-import { AuthGuard } from './auth-guard.service';
-import { CanDeactivateGuard } from './Section11-Changing Pages with Routing/servers/edit-server/can-deactivate-guard.service';
-import { ErrorPageComponent } from './Section11-Changing Pages with Routing/error-page/error-page.component';
-import { ServerResolver } from './Section11-Changing Pages with Routing/servers/server/server-resolver.service';
+import { UserComponent } from './Section13-Observables/user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    UsersComponent,
-    ServersComponent,
-    UserComponent,
-    EditServerComponent,
-    ServerComponent,
-    PageNotFoundComponent,
-    ErrorPageComponent
+    UserComponent,   
   ],
   imports: [
     BrowserModule,
-    FormsModule,
     AppRoutingModule
   ],
-  providers: [ServersService, AuthService, AuthGuard, CanDeactivateGuard, ServerResolver],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
