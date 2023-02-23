@@ -138,8 +138,49 @@
 
 
 //////// ********* Section13 : Understanding Observable **************** ////////
-import { Component, OnInit } from "@angular/core";
-import { UserService } from "./Section13-Observables/user/user.service";
+// import { Component, OnInit } from "@angular/core";
+// import { UserService } from "./Section13-Observables/user/user.service";
+
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent implements OnInit {
+//   userActivated = false;
+//   constructor(
+//     private userService: UserService
+//   ) {}
+
+//   ngOnInit() {
+//     this.userService.activatedEmitter.subscribe( state => {
+//       this.userActivated = state;
+//     })
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////// ********* Section15 : Form **************** ////////
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -147,15 +188,56 @@ import { UserService } from "./Section13-Observables/user/user.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  userActivated = false;
-  constructor(
-    private userService: UserService
-  ) {}
+  @ViewChild('f', {static: true}) signupForm: NgForm;
+  defaultQuestion = 'pet';
+  answer = '';
+  genders = ['male', 'female'];
+  user = {
+    username: '',
+    email: '',
+    secretQuestion: '',
+    answer: '',
+    gender: ''
+  };
+  submitted = false;
+
+  constructor() {}
 
   ngOnInit() {
-    this.userService.activatedEmitter.subscribe( state => {
-      this.userActivated = state;
-    })
   }
 
+  suggestUserName() {
+    const suggestedName = 'Superuser';
+    // this.signupForm.setValue({
+    //   userData: {
+    //     username: suggestedName,
+    //     email: ''
+    //   },
+    //   secret: 'pet',
+    //   questionAnswer: '',
+    //   gender: 'male'
+    // })
+    this.signupForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    })
+  }
+  // onSubmit(form: HTMLFormElement) {
+  //   console.log(form);
+  // }  
+  // onSubmit(form: NgForm) {
+  //   console.log(form);
+  // }  
+  onSubmit() {
+    this.submitted = true;
+    console.log(this.signupForm);
+    this.user.username = this.signupForm.value.userData.username;
+    this.user.email = this.signupForm.value.userData.email;
+    this.user.secretQuestion = this.signupForm.value.secret;
+    this.user.answer = this.signupForm.value.questionAnswer;
+    this.user.gender = this.signupForm.value.gender;
+
+    this.signupForm.reset();
+  }  
 }

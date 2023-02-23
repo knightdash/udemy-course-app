@@ -70,24 +70,24 @@
 
 
 /********* Section13 : Understanding Observable ****************/
-import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
-import { HomeComponent } from "./Section13-Observables/home/home.component";
-import { UserComponent } from "./Section13-Observables/user/user.component";
+// import { NgModule } from "@angular/core";
+// import { RouterModule, Routes } from "@angular/router";
+// import { HomeComponent } from "./Section13-Observables/home/home.component";
+// import { UserComponent } from "./Section13-Observables/user/user.component";
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'user/:id', component: UserComponent}
-]
+// const routes: Routes = [
+//   { path: '', component: HomeComponent },
+//   { path: 'user/:id', component: UserComponent}
+// ]
 
-@NgModule({
-  imports: [
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-    RouterModule
-  ]
-})
-export class AppRoutingModule {
+// @NgModule({
+//   imports: [
+//     RouterModule.forRoot(routes)
+//   ],
+//   exports: [
+//     RouterModule
+//   ]
+// })
+// export class AppRoutingModule {
 
-}
+// }

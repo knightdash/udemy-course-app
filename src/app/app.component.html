@@ -60,13 +60,13 @@
             [ngClass]="{odd: odd % 2 !== 0}" 
             [ngStyle]="{background: odd % 2 !== 0 ? 'yellow' : 'transparent'}">{{ odd }}</li>
         </div> -->
-        <!-- <div *ngIf="!onlyOdd">
+<!-- <div *ngIf="!onlyOdd">
           <li 
             class="list-group-item" 
             *ngFor="let even of evenNumbers" 
             [ngClass]="{odd: even % 2 !== 0}">{{ even }}</li>
         </div> -->
-        <!-- <div *appUnless="!onlyOdd">
+<!-- <div *appUnless="!onlyOdd">
           <li 
             class="list-group-item" 
             *ngFor="let even of evenNumbers" 
@@ -123,14 +123,14 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <ul class="nav nav-tabs"> -->
-                <!-- *** -->
-                <!-- USE HREF -->
-                <!-- <li role="presentation" class="active"><a href="/">Home</a></li>
+<!-- *** -->
+<!-- USE HREF -->
+<!-- <li role="presentation" class="active"><a href="/">Home</a></li>
                 <li role="presentation"><a href="/servers">Servers</a></li>
                 <li role="presentation"><a href="/users">Users</a></li> -->
-                <!-- louterLink -->
-                <!-- *** -->
-        <!-- <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
+<!-- louterLink -->
+<!-- *** -->
+<!-- <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/">Home</a></li>
         <li role="presentation" routerLinkActive="active"><a routerLink="/servers">Servers</a></li>
         <li role="presentation" routerLinkActive="active"><a [routerLink]="'/users'">Users</a></li>
       </ul>
@@ -141,8 +141,8 @@
       <router-outlet></router-outlet>
     </div>
   </div> -->
-  <!-- *** -->
-  <!-- <div class="row">
+<!-- *** -->
+<!-- <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <app-users></app-users>
     </div>
@@ -152,7 +152,7 @@
       <app-servers></app-servers>
     </div>
   </div> -->
-  <!-- *** -->
+<!-- *** -->
 <!-- </div> -->
 
 
@@ -177,7 +177,7 @@
 
 
 <!-- /********* Section13 : Understanding observable****************/ -->
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <a routerLink="/">Home</a>
@@ -191,6 +191,104 @@
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <router-outlet></router-outlet>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- /********* Section15 : Form****************/ -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <!-- <form (ngSubmit)="onSubmit(f)" #f> -->
+      <!-- <form (ngSubmit)="onSubmit(f)" #f="ngForm"> -->
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div 
+          id="user-data" 
+          ngModelGroup="userData"
+          #userData="ngModelGroup">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input 
+              type="text" 
+              id="username" 
+              class="form-control"
+              ngModel
+              name="username"
+              required>
+          </div>
+          <button class="btn btn-default" type="button" (click)="suggestUserName()">Suggest an Username</button>
+          <div class="form-group">
+            <label for="email">Mail</label>
+            <input 
+              type="text" 
+              id="email" 
+              class="form-control"
+              ngModel
+              name="email"
+              required
+              email
+              #email="ngModel">
+            <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+          </div>          
+        </div>
+        <p *ngIf="!userData.valid && userData.touched">User data is invalid</p>
+        <div class="form-group">
+          <label for="secret">Secret Questions</label>
+          <select 
+            id="secret" 
+            class="form-control"
+            [ngModel]="defaultQuestion"
+            name="secret">
+            <option value="pet">Your first Pet?</option>
+            <option value="teacher">Your first Teacher?</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea 
+            name="questionAnswer" 
+            rows="3"
+            class="form-control"
+            [(ngModel)]="answer"></textarea>
+        </div>
+        <p>Your reply: {{ answer }}</p>
+        <div class="radio"*ngFor="let gender of genders">
+          <label>
+            <input type="radio" name="gender" ngModel [value]="gender" required> {{ gender }}
+          </label>
+        </div>
+        <button 
+          class="btn btn-primary" 
+          type="submit"
+          [disabled]="!f.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+  <hr>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+      <h3>Your data</h3>
+      <p>Username: {{ user.username }}</p>
+      <p>Mail: {{ user.email }}</p>
+      <p>Secret Question: {{ user.secretQuestion }}</p>
+      <p>Answer: {{ user.answer }}</p>
+      <p>Gender: {{ user.gender }}</p>
     </div>
   </div>
 </div>

@@ -191,23 +191,59 @@
 
 
 //////// ********* Section13 : Understanding Observable**************** ////////
+// import { BrowserModule } from '@angular/platform-browser';
+// import { NgModule } from '@angular/core';
+
+// import { AppComponent } from './app.component';
+// import { HomeComponent } from './Section11-Changing Pages with Routing/home/home.component';
+// import { AppRoutingModule } from './app-routing.module';
+// import { UserComponent } from './Section13-Observables/user/user.component';
+
+// @NgModule({
+//   declarations: [
+//     AppComponent,
+//     HomeComponent,
+//     UserComponent,   
+//   ],
+//   imports: [
+//     BrowserModule,
+//     AppRoutingModule
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////// ********* Section15 : Form**************** ////////
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './Section11-Changing Pages with Routing/home/home.component';
-import { AppRoutingModule } from './app-routing.module';
-import { UserComponent } from './Section13-Observables/user/user.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    UserComponent,   
+    AppComponent     
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
