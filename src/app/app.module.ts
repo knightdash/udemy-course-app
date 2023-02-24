@@ -230,20 +230,46 @@
 
 
 
-//////// ********* Section15 : Form**************** ////////
+//////// ********* Section15 : Form TD**************** ////////
+// import { BrowserModule } from '@angular/platform-browser';
+// import { NgModule } from '@angular/core';
+
+// import { AppComponent } from './app.component';
+// import { FormsModule } from '@angular/forms';
+// @NgModule({
+//   declarations: [
+//     AppComponent     
+//   ],
+//   imports: [
+//     BrowserModule,
+//     FormsModule
+//   ],
+//   providers: [],
+//   bootstrap: [AppComponent]
+// })
+// export class AppModule { }
+
+
+
+
+
+
+
+
+//////// ********* Section15 : Form Reactive **************** ////////
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent     
+    AppComponent    
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
