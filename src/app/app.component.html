@@ -374,7 +374,7 @@
 
 
 
-<!-- /********* Section17 : Using Pipes ro Transform Output****************/ -->
+<!-- /********* Section17 : Using Pipes to Transform Output****************/ -->
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -386,7 +386,9 @@
           <span class="badge badge-info">
             {{ server.status }}
           </span>
-          <strong>{{ server.name }}</strong> | {{ server.instanceType }} | {{ server.started }}
+          <strong>{{ server.name }}</strong> | 
+          {{ server.instanceType | uppercase }} | 
+          {{ server.started | date: 'fullDate' }}
         </li>
       </ul>
     </div>
