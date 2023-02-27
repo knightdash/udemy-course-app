@@ -310,7 +310,7 @@
 
 
 <!-- /********* Section15 : Form Reactive****************/ -->
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
       <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
@@ -356,6 +356,39 @@
             *ngIf="!signupForm.valid && signupForm.touched">Please enter a valid data!</span>
         <button class="btn btn-primary" type="submit">Submit</button>
       </form>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- /********* Section17 : Using Pipes ro Transform Output****************/ -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="list-group">
+        <li 
+          class="list-group-item"
+          *ngFor="let server of servers"
+          [ngClass]="getStatusClasses(server)">
+          <span class="badge badge-info">
+            {{ server.status }}
+          </span>
+          <strong>{{ server.name }}</strong> | {{ server.instanceType }} | {{ server.started }}
+        </li>
+      </ul>
     </div>
   </div>
 </div>
