@@ -359,6 +359,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+
+  appStatus = new Promise<any>((resolve, reject) => {
+    setTimeout(() => {
+      resolve('stable')
+    },2000)
+  })
+  
   servers = [
     {
       instanceType: 'medium',
@@ -386,6 +393,8 @@ export class AppComponent implements OnInit {
     }
   ];
 
+  filteredStatus = '';
+
   ngOnInit(): void {
 
   }
@@ -396,5 +405,14 @@ export class AppComponent implements OnInit {
       'list-group-item-warning': server.status === 'offline',
       'list-group-item-danger': server.status === 'critical',
     }
+  }
+
+  onAddServer() {
+    this.servers.push({
+      instanceType: 'small',
+      name: 'Aew Server',
+      status: 'stable',
+      started: new Date(10, 10, 2022)
+    })
   }
 }

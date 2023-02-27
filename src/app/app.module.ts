@@ -298,13 +298,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { ShortenPipe } from './Section17-Pipes/shorten.pipe';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './Section17-Pipes/filter.pipe';
+import { ReversePipe } from './Section17-Pipes/reverse.pipe';
+import { SortPipe } from './Section17-Pipes/sort.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShortenPipe,
+    FilterPipe,
+    ReversePipe,
+    SortPipe
   ],
   imports: [
     BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
