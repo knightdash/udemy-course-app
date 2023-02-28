@@ -352,6 +352,90 @@
 
 
 /////********* Section17 : Using Pipes ro Transform Output****************//////
+// import { Component, OnInit } from '@angular/core';
+// @Component({
+//   selector: 'app-root',
+//   templateUrl: './app.component.html',
+//   styleUrls: ['./app.component.css']
+// })
+// export class AppComponent implements OnInit {
+
+//   appStatus = new Promise<any>((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve('stable')
+//     },2000)
+//   })
+  
+//   servers = [
+//     {
+//       instanceType: 'medium',
+//       name: 'Production Server',
+//       status: 'stable',
+//       started: new Date(15, 1, 2017)
+//     },
+//     {
+//       instanceType: 'large',
+//       name: 'User Database',
+//       status: 'stable',
+//       started: new Date(15, 1, 2017)
+//     },
+//     {
+//       instanceType: 'small',
+//       name: 'Development Server',
+//       status: 'offline',
+//       started: new Date(15, 1, 2017)
+//     },
+//     {
+//       instanceType: 'small',
+//       name: 'Testing Environment Server',
+//       status: 'stable',
+//       started: new Date(15, 1, 2017)
+//     }
+//   ];
+
+//   filteredStatus = '';
+
+//   ngOnInit(): void {
+
+//   }
+
+//   getStatusClasses(server: any) {
+//     return {
+//       'list-group-item-success': server.status === 'stable',
+//       'list-group-item-warning': server.status === 'offline',
+//       'list-group-item-danger': server.status === 'critical',
+//     }
+//   }
+
+//   onAddServer() {
+//     this.servers.push({
+//       instanceType: 'small',
+//       name: 'Aew Server',
+//       status: 'stable',
+//       started: new Date(10, 10, 2022)
+//     })
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////********* Section18 : Making HTTP request****************//////
 import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
@@ -359,60 +443,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
-  appStatus = new Promise<any>((resolve, reject) => {
-    setTimeout(() => {
-      resolve('stable')
-    },2000)
-  })
-  
-  servers = [
-    {
-      instanceType: 'medium',
-      name: 'Production Server',
-      status: 'stable',
-      started: new Date(15, 1, 2017)
-    },
-    {
-      instanceType: 'large',
-      name: 'User Database',
-      status: 'stable',
-      started: new Date(15, 1, 2017)
-    },
-    {
-      instanceType: 'small',
-      name: 'Development Server',
-      status: 'offline',
-      started: new Date(15, 1, 2017)
-    },
-    {
-      instanceType: 'small',
-      name: 'Testing Environment Server',
-      status: 'stable',
-      started: new Date(15, 1, 2017)
-    }
-  ];
-
-  filteredStatus = '';
-
+  loadedPosts = [];
   ngOnInit(): void {
-
-  }
-
-  getStatusClasses(server: any) {
-    return {
-      'list-group-item-success': server.status === 'stable',
-      'list-group-item-warning': server.status === 'offline',
-      'list-group-item-danger': server.status === 'critical',
-    }
-  }
-
-  onAddServer() {
-    this.servers.push({
-      instanceType: 'small',
-      name: 'Aew Server',
-      status: 'stable',
-      started: new Date(10, 10, 2022)
-    })
+      
   }
 }
