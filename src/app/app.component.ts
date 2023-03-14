@@ -365,7 +365,7 @@
 //       resolve('stable')
 //     },2000)
 //   })
-  
+
 //   servers = [
 //     {
 //       instanceType: 'medium',
@@ -436,7 +436,11 @@
 
 
 /////********* Section18 : Making HTTP request****************//////
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { Post } from './Section18-Making Http Requests/post.model';
+import { PostsService } from './Section18-Making Http Requests/post.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -444,7 +448,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   loadedPosts = [];
+  isFetching = false;
+  error = null;
+
+  constructor(
+    private http: HttpClient,
+    private postService: PostsService
+  ) { }
+
   ngOnInit(): void {
-      
+    this.onFetchPost();
+  }
+
+  onCreatePost(postData: Post) {
+    this.postService.createAndStorePosts(postData.title, postData.content);
+  }
+
+  onFetchPost() {
+    this.isFetching = true;
+    this.postService.fetchPosts().subscribe(posts => {
+      this.isFetching = false;
+      this.loadedPosts = posts;
+    }, error => {
+      this.error = error.message;
+      console.log(error);
+    });
+  }
+
+  onClearPosts() {
+    this.postService.deletePosts().subscribe(() => {
+      this.loadedPosts = [];
+    });
   }
 }
