@@ -1,12 +1,15 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map } from "rxjs/operators";
+import { Subject, throwError } from "rxjs";
+import { map, catchError } from "rxjs/operators";
 import { Post } from "./post.model";
 
 @Injectable({
 	providedIn: 'root'
 })
 export class PostsService {
+	error = new Subject<string>();
+
 	constructor(
 		private http: HttpClient
 	) { }
@@ -15,6 +18,8 @@ export class PostsService {
 		const postData: Post = { title: title, content: content };
 		this.http.post<{ name: string }>('https://ng-complete-guide-205e0-default-rtdb.firebaseio.com/posts.json', postData).subscribe(resData => {
 			console.log(resData);
+		}, error => {
+			this.error.next(error.message);
 		})
 	}
 
@@ -29,6 +34,10 @@ export class PostsService {
 						}
 					}
 					return postsArray;
+				}),
+				catchError(errorRes => {
+					// Send to analytic server
+					return throwError(errorRes);
 				})
 			);
 	}

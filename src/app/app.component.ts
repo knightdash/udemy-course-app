@@ -437,8 +437,10 @@
 
 /////********* Section18 : Making HTTP request****************//////
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
+
 import { Post } from './Section18-Making Http Requests/post.model';
 import { PostsService } from './Section18-Making Http Requests/post.service';
 @Component({
@@ -446,10 +448,12 @@ import { PostsService } from './Section18-Making Http Requests/post.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   loadedPosts = [];
   isFetching = false;
   error = null;
+
+  private errorSub: Subscription
 
   constructor(
     private http: HttpClient,
@@ -457,6 +461,7 @@ export class AppComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.errorSub = this.postService.error.subscribe(errorMessage => this.error = errorMessage);
     this.onFetchPost();
   }
 
@@ -470,6 +475,7 @@ export class AppComponent implements OnInit {
       this.isFetching = false;
       this.loadedPosts = posts;
     }, error => {
+      this.isFetching = false;
       this.error = error.message;
       console.log(error);
     });
@@ -479,5 +485,13 @@ export class AppComponent implements OnInit {
     this.postService.deletePosts().subscribe(() => {
       this.loadedPosts = [];
     });
+  }
+
+  onHandlerError() {
+    this.error = null;
+  }
+
+  ngOnDestroy(): void {
+    this.errorSub.unsubscribe();
   }
 }
