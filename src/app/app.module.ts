@@ -1,5 +1,3 @@
-import { LoggingInterceptorService } from './Section18-Making Http Requests/logging-interceptor.service';
-import { AuthInterceptorService } from './Section18-Making Http Requests/auth-interceptor.service';
 //////// ********* Section2 : Basic **************** ////////
 
 // import { NgModule } from '@angular/core';
@@ -345,10 +343,12 @@ import { AuthInterceptorService } from './Section18-Making Http Requests/auth-in
 //////// ********* Section18 : Making HTTP Request **************** ////////
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+import { LoggingInterceptorService } from './Section18-Making Http Requests/logging-interceptor.service';
+import { AuthInterceptorService } from './Section18-Making Http Requests/auth-interceptor.service';
 
 
 @NgModule({
