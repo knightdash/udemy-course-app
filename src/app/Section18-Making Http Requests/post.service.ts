@@ -1,7 +1,7 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpEventType, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Subject, throwError } from "rxjs";
-import { map, catchError } from "rxjs/operators";
+import { map, catchError, tap } from "rxjs/operators";
 import { Post } from "./post.model";
 
 @Injectable({
@@ -16,15 +16,31 @@ export class PostsService {
 
 	createAndStorePosts(title: string, content: string) {
 		const postData: Post = { title: title, content: content };
-		this.http.post<{ name: string }>('https://ng-complete-guide-205e0-default-rtdb.firebaseio.com/posts.json', postData).subscribe(resData => {
-			console.log(resData);
-		}, error => {
-			this.error.next(error.message);
-		})
+		this.http.post<{ name: string }>(
+			'https://ng-complete-guide-205e0-default-rtdb.firebaseio.com/posts.json',
+			postData,
+			{
+				observe: 'response'
+			})
+			.subscribe(resData => {
+				console.log(resData);
+			}, error => {
+				this.error.next(error.message);
+			})
 	}
 
 	fetchPosts() {
-		return this.http.get<{ [key: string]: Post }>('https://ng-complete-guide-205e0-default-rtdb.firebaseio.com/posts.json')
+		let searchParams = new HttpParams();
+		searchParams = searchParams.append('print', 'pretty');
+		searchParams = searchParams.append('custom', 'key');
+
+
+		return this.http.get<{ [key: string]: Post }>(
+			'https://ng-complete-guide-205e0-default-rtdb.firebaseio.com/posts.json',
+			{
+				headers: new HttpHeaders({ 'customHeader': 'hi' }),
+				params: searchParams
+			})
 			.pipe(
 				map(resData => {
 					const postsArray: Post[] = [];
@@ -43,6 +59,22 @@ export class PostsService {
 	}
 
 	deletePosts() {
-		return this.http.delete('https://ng-complete-guide-205e0-default-rtdb.firebaseio.com/posts.json');
+		return this.http.delete(
+			'https://ng-complete-guide-205e0-default-rtdb.firebaseio.com/posts.json',
+			{
+				observe: 'events',
+				responseType: 'text'
+			}
+		).pipe(
+			tap(event => {
+				console.log(event);
+				if (event.type === HttpEventType.Sent) {
+					console.log('sent type');
+				}
+				if (event.type === HttpEventType.Response) {
+					console.log(event.body);
+				}
+			})
+		);
 	}
 }

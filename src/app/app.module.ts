@@ -1,3 +1,5 @@
+import { LoggingInterceptorService } from './Section18-Making Http Requests/logging-interceptor.service';
+import { AuthInterceptorService } from './Section18-Making Http Requests/auth-interceptor.service';
 //////// ********* Section2 : Basic **************** ////////
 
 // import { NgModule } from '@angular/core';
@@ -346,19 +348,30 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
-    AppComponent   
+    AppComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggingInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
